@@ -10,8 +10,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.3",
-        "ezsystems/ezpublish-kernel": "*",
         "bdunogier/eziftttbundle": "*"
     },
     "autoload": {
