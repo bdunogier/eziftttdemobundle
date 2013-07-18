@@ -1,0 +1,21 @@
+{
+    "name": "bdunogier/eziftttdemobundle",
+    "description": "Online demo for bdunogier/eziftttbundle",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Bertrand Dunogier",
+            "homepage": "https://github.com/bdunogier/eziftttdemobundle"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "ezsystems/ezpublish-kernel": "*",
+        "bdunogier/eziftttbundle": "*"
+    },
+    "autoload": {
+        "psr-0": {"BD\\Bundle\\EzIFTTTDemoBundle": ""}
+    },
+    "target-dir": "BD/Bundle/EzIFTTTDemoBundle"
+}
