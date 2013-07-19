@@ -1,0 +1,7 @@
+parameters:
+#    bd_ez_ifttt_demo.example.class: BD\Bundle\EzIFTTTDemoBundle\Example
+
+services:
+#    bd_ez_ifttt_demo.example:
+#        class: %bd_ez_ifttt_demo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
