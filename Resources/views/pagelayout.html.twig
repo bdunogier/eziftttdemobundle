@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="unsupported-ie ie" lang=""><![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang=""><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang=""><!--<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <!-- Complete page area: START -->
+    <div id="page" class="">
+        <div class="container">
+        <div class="row">
+            <!-- Main area: START -->
+            <div class="span{% set innerColumnSize = innerColumnSize|default( 12 ) %} main-content">
+                {% block content %}{% endblock %}
+            </div>
+            <!-- Main area: END -->
+        </div>
+    </div>
+</body>
+</html>

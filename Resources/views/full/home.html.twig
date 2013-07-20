@@ -1,0 +1,13 @@
+{% extends "BDEzIFTTTDemoBundle::pagelayout.html.twig" %}
+
+{% block content %}
+    <h2>{{ ez_render_field( homeContent, 'name') }}</h2>
+
+    <p>{{ ez_render_field( homeContent, 'short_description') }}</p>
+    <p>{{ ez_render_field( homeContent, 'description') }}</p>
+
+    <h2>Your content</h2>
+    {% for location in locationChildren %}
+        <span>{{ render( controller( "ez_content:viewLocation", {"locationId": location.id, "viewType": "line"} ) ) }}</span>
+    {% endfor %}
+{% endblock %}
