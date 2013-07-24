@@ -10,7 +10,7 @@ services:
             - @ezpublish.api.service.content_type
             - @ezpublish.api.service.location
         calls:
-            - [ setCurrentUser, [ @ezpublish.api.repository ] ]
+            - [ setUserService, [ @ezpublish.api.service.user] ]
 
     ezifttt.content_provider:
         alias: ezifttt.content_provider.demo

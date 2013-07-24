@@ -6,11 +6,12 @@
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
  * @version //autogentag//
  */ 
-namespace BD\Bundle\EzIFTTTBundle\ContentProvider;
+namespace BD\Bundle\EzIFTTTDemoBundle\ContentProvider;
 
 use BD\Bundle\EzIFTTTBundle\ContentProvider;
 use BD\Bundle\IFTTTBundle\IFTTT\Request;
 use BD\Bundle\EzIFTTTBundle\ContentProvider\Simple;
+use eZ\Publish\API\Repository\UserService;
 
 /**
  * Creates a folder out of a Request.
@@ -22,12 +23,12 @@ use BD\Bundle\EzIFTTTBundle\ContentProvider\Simple;
  */
 class Demo extends Simple
 {
-    /** @var \eZ\Publish\API\Repository\Values\User\User */
-    private $currentUser;
+    /** @var UserService */
+    private $userService;
 
-    public function setCurrentUser( \eZ\Publish\Api\Repository\Repository $repository )
+    public function setUserService( UserService $userService )
     {
-        $this->currentUser = $repository->getCurrentUser();
+        $this->userService = $userService;
     }
 
     /**
@@ -35,8 +36,13 @@ class Demo extends Simple
      */
     public function newLocationCreateStructFromRequest( Request $request )
     {
+        $user = $this->userService->loadUserByCredentials(
+            $request->username,
+            $request->password
+        );
+
         return $this->locationService->newLocationCreateStruct(
-            $this->currentUser->contentInfo->mainLocationId
+            $user->contentInfo->mainLocationId
         );
     }
 }
