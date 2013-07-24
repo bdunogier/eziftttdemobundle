@@ -1,7 +1,16 @@
 parameters:
-#    bd_ez_ifttt_demo.example.class: BD\Bundle\EzIFTTTDemoBundle\Example
+    ezifttt.content_provider.demo.class: BD\Bundle\EzIFTTTDemoBundle\ContentProvider\Demo
 
 services:
-#    bd_ez_ifttt_demo.example:
-#        class: %bd_ez_ifttt_demo.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    ezifttt.content_provider.demo:
+        base: ezifttt.content_provider.simple
+        class: %ezifttt.content_provider.demo.class%
+        arguments:
+            - @ezpublish.api.service.content
+            - @ezpublish.api.service.content_type
+            - @ezpublish.api.service.location
+        calls:
+            - [ setCurrentUser, [ @ezpublish.api.repository ] ]
+
+    ezifttt.content_provider:
+        alias: ezifttt.content_provider.demo
