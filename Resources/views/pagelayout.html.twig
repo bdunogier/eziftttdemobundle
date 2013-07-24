@@ -12,7 +12,11 @@
         <div class="row">
             <!-- Main area: START -->
             <div class="span{% set innerColumnSize = innerColumnSize|default( 12 ) %} main-content">
-                {% block content %}{% endblock %}
+                {% block content %}
+                    {% if module_result %}
+                        {{ module_result.content|raw }}
+                    {% endif %}
+                {% endblock %}
             </div>
             <!-- Main area: END -->
         </div>
